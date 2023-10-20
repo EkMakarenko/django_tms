@@ -6,4 +6,3 @@ class InfoHotelCatalog (models.Model):
     description = models.TextField()
     rating = models.PositiveIntegerField(name=False)
     is_deleted = models.BooleanField(null=False, default=False)
-
