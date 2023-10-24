@@ -17,12 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from info import views
+from catalog import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('catalog/', include('info.urls')),
-    # path('details/', include('info.urls')),
+    path('catalog/', include('catalog.urls')),
+    path('apartment/', include('apartment.urls')),
     # path('comments/', include('info.urls')),
     path('comments/', views.CommentsView.as_view(), name='comments')
 ]
