@@ -1,3 +1,5 @@
+from gettext import Catalog
+
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
@@ -12,14 +14,12 @@ def read_information(request):
     return render(request, 'index.html')
 
 
-def read_catalog(request):
-    return render(request, 'catalog.html')
+class InfoCatalogView(View):
+    def get(self, request, id=None):
+        info = HotelCatalog.objects.all()
 
+        if id:
+            information = HotelCatalog.objects.get(id=id, is_deleted=False)
+            return render(request, 'info.html', context={'info': info, 'information': information})
 
-class CommentsView(View):
-    def get(self, request):
-        amount_comments = HotelCatalog.objects.filter(is_deleted=False).count()
-        # print(catalogs.values_list())
-        print(amount_comments)
-        return render(request, 'index.html', context={'amount_comments': amount_comments})
-
+        return render(request, 'index.html', context={'info': info})

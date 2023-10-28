@@ -2,18 +2,61 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My site</title>
+    <title>My info</title>
 </head>
 <body>
-    <h1>TEXT</h1>
-    <h2>TEXT 2 </h2>
-
-     <h1>Amount posts: {{ posts.count }}</h1>
 
     <br>
+    <h1>Amount info: {{ info.count }}</h1>
 
-    {% block block_posts %}
 
-    {% endblock %}
+
+<h2>All info: </h2>
+<ol>
+    <li>
+        <a href="http://127.0.0.1:8000/catalog/info/1"><h3>{{ info.0.name }}</h3></a>
+    </li>
+    <img src="https://m.realt.by/typo3temp/pics/72/f5/72f50dd3f10759cf1c43e0d1b315da9a.jpg" alt="" width="50%" height="50%">
+    <li>
+        <a href="http://127.0.0.1:8000/catalog/info/2"><h3>{{ info.1.name }}</h3></a>
+    </li>
+    <img src="https://lh3.googleusercontent.com/p/AF1QipO5VjW1bMo_9qWindFsaklQS7cViywOrB9QmHqu=w624-h720-n-k" alt="" width="50%" height="50%">
+    <li>
+        <a href="http://127.0.0.1:8000/catalog/info/3"><h3>{{ info.2.name }}</h3></a>
+    </li>
+    <img src="https://royalpark.by/wp-content/uploads/2023/03/Frame-465-1.webp" alt="" width="50%" height="50%">
+
+
+
+<!--     <table width=100% border="1px solid">-->
+<!--         <tr>-->
+<!--             <th>Name</th>-->
+<!--             <th>Description</th>-->
+<!--             <th>Rating</th>-->
+<!--        </tr>-->
+
+<!--        {% for info in info %}-->
+<!--            <tr>-->
+<!--                <td>{{ info.name }}</td>-->
+<!--                <td>{{ info.description }}</td>-->
+<!--                <td>{{ info.rating }}</td>-->
+<!--            </tr>-->
+<!--         {% endfor %}-->
+<!--        </table>-->
+
+<!--        <tr>-->
+<!--           <td>{{ info.0.name }}</td>-->
+<!--           <td>{{ info.0.description }}</td>-->
+<!--           <td>{{ info.0.rating }}</td>-->
+<!--        </tr>-->
+<!--         <tr>-->
+<!--           <td>{{ info.1.name }}</td>-->
+<!--           <td>{{ info.1.description }}</td>-->
+<!--           <td>{{ info.1.rating }}</td>-->
+<!--        </tr>-->
+<!--        </table>-->
+<!--    {% block block_posts %}-->
+
+<!--    {% endblock %}-->
 </body>
 </html>

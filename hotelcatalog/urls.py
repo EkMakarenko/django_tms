@@ -21,8 +21,7 @@ from catalog import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('catalog/', include('catalog.urls')),
+    path('hotelcatalog/', include('catalog.urls')),
     path('apartment/', include('apartment.urls')),
     # path('comments/', include('info.urls')),
-    path('comments/', views.CommentsView.as_view(), name='comments')
 ]
