@@ -1,6 +1,12 @@
 version: '3.7'
 
 services:
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: hotelcatalog
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
 
   web:
     build:
@@ -10,25 +16,28 @@ services:
       - .:/code
     ports:
       - '8000:8000'
-#    depends_on:
-#      - db
+    env_file:
+      - .env
+    depends_on:
+      - db
     networks:
       - main
 
-#  db:
-#    image: postgres:12-alpine
-#    ports:
-#      - '5432:5432'
-#    volumes:
-#      - ./data/postgres:/var/lib/postgresql/data/
-#    env_file:
-#      - .env
-#    networks:
-#      - main
+
+  db:
+    image: postgres:12-alpine
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data/
+    env_file:
+      - .env
+    networks:
+      - main
 
 
 networks:
   main:
 
-#volumes:
-#  db:
+volumes:
+  db:

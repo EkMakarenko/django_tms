@@ -12,4 +12,4 @@ class HotelCatalogAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'description', 'rating')
     list_filter = ('rating', 'name')
     search_fields = ('name', 'rating')
-    sortable_by = ('price', 'rating',  'name')
+    sortable_by = ('price', 'rating', 'name')
