@@ -11,14 +11,7 @@
 
 
     {% block block_info %}
-        <h3>All info:</h3>
-        <ol>
-            {% for info in info %}
-                <li>
-                    <a href="{% url 'information' info.id %}"><h3>{{ info.name }}</h3></a>
-                </li>
-            {% endfor %}
-        </ol>
+
     {% endblock %}
 
 

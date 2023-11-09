@@ -9,7 +9,7 @@ from catalog.models import HotelCatalog
 
 @admin.register(HotelCatalog)
 class HotelCatalogAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'description', 'rating')
-    list_filter = ('rating', 'name')
+    list_display = ('id', 'name', 'country', 'description', 'rating')
+    list_filter = ('rating', 'name', 'country')
     search_fields = ('name', 'rating')
-    sortable_by = ('price', 'rating', 'name')
+    sortable_by = ('price', 'rating', 'name', 'country')

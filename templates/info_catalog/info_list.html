@@ -1,22 +1,25 @@
-<!--&lt;!&ndash;{% extends 'index.html' %}&ndash;&gt;-->
+{% extends 'index.html' %}
 
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Info</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--    {% block block_info %}-->
-<!--        <h3>All info:</h3>-->
-<!--        <ol>-->
-<!--            {% for info in info %}-->
-<!--                <li>-->
-<!--                    <a href="{% url 'info_detail' info.id %}"><h4>{{ info.name }}</h4></a>-->
-<!--                </li>-->
-<!--            {% endfor %}-->
-<!--        </ol>-->
-<!--    {% endblock %}-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Info</title>
+</head>
+<body>
+    {% block block_info %}
+      <form method="get" action="{% url 'info-create' %}">
+            <button>Create New Info</button>
+        </form>
+        <h3>All info:</h3>
+        <ol>
+            {% for info in info %}
+                <li>
+                    <a href="{% url 'info-detail' info.id %}"><h4>{{ info.name }}</h4></a>
+                </li>
+            {% endfor %}
+        </ol>
+    {% endblock %}
 
-<!--</body>-->
-<!--</html>-->
+</body>
+</html>

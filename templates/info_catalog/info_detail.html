@@ -1,30 +1,37 @@
-<!--{% extends 'index.html' %}-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My info</title>
+</head>
+<body>
 
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Info</title>-->
-<!--</head>-->
-<!--<body>-->
-<!-- {% if info %}-->
-<!--         <table width=100% border="1px solid">-->
-<!--             <tr>-->
-<!--                 <th>Name</th>-->
-<!--                 <th>Description</th>-->
-<!--                 <th>Rating</th>-->
-<!--            </tr>-->
+    {% if info_detail %}
+        <form method="get" action="{% url 'info-update' info_detail.id %}">
+            <button>Update this info</button>
+        </form>
+        <form method="post" action="{% url 'info-delete' info_detail.id %}">
+            <button>Delete this info</button>
+        </form>
+        <table width=100% border="1px solid">
+             <tr>
+                 <th>Name</th>
+                 <th>Country</th>
+                 <th>Description</th>
+                 <th>Rating</th>
+            </tr>
 
-<!--                <tr>-->
-<!--                    <td>{{ information.name }}</td>-->
-<!--                    <td>{{ information.description }}</td>-->
-<!--                    <td>{{ information.rating }}</td>-->
-<!--                </tr>-->
+                <tr>
+                    <td>{{ info_detail.name }}</td>
+                    <td>{{ info_detail.country }}</td>
+                    <td>{{ info_detail.description }}</td>
+                    <td>{{ info_detail.rating }}</td>
+                </tr>
 
-<!--         </table>-->
-<!--    {% else %}-->
-<!--        <h1>NOT FOUND</h1>-->
-<!--    {% endif %}-->
+        </table>
+    {% else %}
+        <h1>NOT FOUND</h1>
+    {% endif %}
 
-<!--</body>-->
-<!--</html>-->
+</body>
+</html>
