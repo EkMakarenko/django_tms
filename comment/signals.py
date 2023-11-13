@@ -9,17 +9,17 @@ from catalog.models import HotelCatalog
 def post_save_comment(sender, instance, created, **kwargs):
     if created:
         print('Comment saved. Calculate new rating')
-        recalculate_post_rating(instance_post=instance.info_hotelcatalog)
+        recalculate_info_rating(instance_info=instance.info_hotelcatalog)
 
 
 @receiver(post_delete, sender=Comment)
 def post_delete_comment(sender, instance, **kwargs):
     print('Comment deleted. Calculate new rating')
-    recalculate_post_rating(instance_post=instance.info_hotelcatalog)
+    recalculate_info_rating(instance_info=instance.info_hotelcatalog)
 
 
-def recalculate_post_rating(instance_post: HotelCatalog):
-    comments = instance_post.comments.all()
+def recalculate_info_rating(instance_info: HotelCatalog):
+    comments = instance_info.comments.all()
     total_rating = sum(comment.rating for comment in comments)
-    instance_post.rating = total_rating / len(comments) if comments else 0
-    instance_post.save()
+    instance_info.rating = total_rating / len(comments) if comments else 0
+    instance_info.save()

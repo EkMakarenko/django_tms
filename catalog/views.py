@@ -4,6 +4,7 @@ from django.views import generic, View
 
 from catalog.form import InfoHotelCatalogForm
 from catalog.models import HotelCatalog
+from comment.form import CommentForm
 
 
 # Create your views here.
@@ -33,6 +34,7 @@ class InfoCatalogDetailView(generic.DetailView):
     model = HotelCatalog
     template_name = 'info_catalog/info_detail.html'
     context_object_name = 'info_detail'
+    # form = CommentForm
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -63,3 +65,4 @@ class InfoCatalogDeleteView(generic.DeleteView):
 
     def get_success_url(self):
         return reverse('info-list')
+
