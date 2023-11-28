@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My info</title>
+</head>
+<body>
+
+    {% if info_detail %}
+        <form method="get" action="{% url 'info-update' info_detail.id %}">
+            <button>Update this info</button>
+        </form>
+        <form method="post" action="{% url 'info-delete' info_detail.id %}">
+            <button>Delete this info</button>
+        </form>
+        <table width=100% border="1px solid" bgcolor="#5f9ea0">
+             <tr>
+                 <th>Name</th>
+                 <th>Country</th>
+                 <th>Description</th>
+                 <th>Rating</th>
+            </tr>
+
+                <tr>
+                    <td>{{ info_detail.name }}</td>
+                    <td>{{ info_detail.country }}</td>
+                    <td>{{ info_detail.description }}</td>
+                    <td>{{ info_detail.rating }}</td>
+                </tr>
+        </table>
+
+        <br>
+        <h6>Write a Comment for this Info:</h6>
+        <form method="get" action="{% url 'comment-create' info_detail.id%}">
+            <button>Write</button>
+            </form>
+        <br>
+
+        <h2>Comments:</h2>
+        <table width=100% border="1px solid" bgcolor="#6495ed">
+            <tr>
+                <th>Text</th>
+                <th>Rating</th>
+                <th>Created At</th>
+            </tr>
+            {% for comment in info_detail.comments.values %}
+                <tr>
+                    <td>{{ comment.text }}</td>
+                    <td>{{ comment.rating }}</td>
+                    <td>{{ comment.created_at }}</td>
+                </tr>
+            {% endfor %}
+
+        </table>
+
+
+    {% else %}
+        <h1>NOT FOUND</h1>
+    {% endif %}
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+<body>
+    {% block block_info %}
+        <h2>Write a Comment for this Info:</h2>
+        <form method="post" action="{% url 'comment-create' info_id %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
+    {% endblock %}
+</body>
+</html>
