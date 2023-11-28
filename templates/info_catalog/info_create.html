@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+
+<!DOCTYPE html>
+
+</head>
+<body>
+    {% block block_info %}
+        <h2>Create New Info:</h2>
+        <form method="post" action="{% url 'info-create' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Create Info</button>
+        </form>
+    {% endblock %}
+</body>
+</html>
