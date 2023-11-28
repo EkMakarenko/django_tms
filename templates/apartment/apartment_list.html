@@ -1,0 +1,34 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Info</title>
+</head>
+<body>
+
+        <h2>Apartment:</h2>
+        <a href="create/">Add new Apartment</a>
+        <table width=100% border="1px solid" bgcolor="#6495ed">
+            <tr>
+                <th>Total_area</th>
+                <th>Numer_of_bedrooms</th>
+                <th>Number_of_bathroom</th>
+                <th>Price</th>
+                <th>Hotel id</th>
+            </tr>
+
+            {% for apartment in apartments %}
+                <tr>
+                    <td>{{ apartment.total_area }}</td>
+                    <td>{{ apartment.numer_of_bedrooms }}</td>
+                    <td>{{ apartment.number_of_bathroom}}</td>
+                    <td>{{ apartment.price }}</td>
+                    <td>{{ apartment.hotel_id }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+</body>
+</html>
