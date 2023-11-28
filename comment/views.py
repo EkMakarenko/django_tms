@@ -11,7 +11,7 @@ class CommentCreateView(generic.CreateView):
     form_class = CommentForm
 
     def get_success_url(self):
-        return reverse('info-detail')
+        return reverse('comment-list')
 
     def form_valid(self, form):
         form.instance.info_id = self.kwargs.get('info_id')

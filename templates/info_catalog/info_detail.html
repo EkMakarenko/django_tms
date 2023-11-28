@@ -8,7 +8,7 @@
 
     {% if info_detail %}
         <form method="get" action="{% url 'info-update' info_detail.id %}">
-            <button>Update this info</button>
+        <button>Update this info</button>
         </form>
         <form method="post" action="{% url 'info-delete' info_detail.id %}">
             <button>Delete this info</button>
@@ -17,6 +17,9 @@
              <tr>
                  <th>Name</th>
                  <th>Country</th>
+                 <th>City</th>
+                 <th>Street</th>
+                 <th>House number</th>
                  <th>Description</th>
                  <th>Rating</th>
             </tr>
@@ -24,17 +27,44 @@
                 <tr>
                     <td>{{ info_detail.name }}</td>
                     <td>{{ info_detail.country }}</td>
+                    <td>{{ info_detail.city }}</td>
+                    <td>{{ info_detail.street }}</td>
+                    <td>{{ info_detail.house_number }}</td>
                     <td>{{ info_detail.description }}</td>
                     <td>{{ info_detail.rating }}</td>
                 </tr>
         </table>
 
-        <br>
-        <h6>Write a Comment for this Info:</h6>
-        <form method="get" action="{% url 'comment-create' info_detail.id%}">
+        <table>
+        <h2>Apartment:</h2>
+        <table width=100% border="1px solid" bgcolor="#6495ed">
+            <tr>
+                <th>total_area</th>
+                <th>Numer_of_bedrooms</th>
+                <th>Number_of_bathroom/th>
+                <th>Price</th>
+                <th>Hotel id</th>
+
+
+            </tr>
+            {% for apartment in info_detail.apartments.values %}
+                <tr>
+                    <td>{{ apartment.total_area }}</td>
+                    <td>{{ apartment.numer_of_bedrooms }}</td>
+                    <td>{{ apartment.number_of_bathroom}}</td>
+                    <td>{{ apartment.price }}</td>
+                    <td>{{ apartment.hotel_id }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+    <h6> Add a new apartment:</h6>
+        <form method="get" action="{% url 'apartment-create' %}">
             <button>Write</button>
             </form>
         <br>
+        <br>
+
 
         <h2>Comments:</h2>
         <table width=100% border="1px solid" bgcolor="#6495ed">
@@ -52,6 +82,12 @@
             {% endfor %}
 
         </table>
+
+    <h6>Write a Comment for this Info:</h6>
+        <form method="get" action="{% url 'comment-create' info_detail.id%}">
+            <button>Write</button>
+            </form>
+        <br>
 
 
     {% else %}

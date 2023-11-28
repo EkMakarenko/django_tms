@@ -3,5 +3,6 @@ from django.urls import path
 from apartment import views
 
 urlpatterns = [
-      path('apartment', views.read_apartment, name='read_apartment')
+    path('', views.ApartmentListView.as_view(), name='apartments'),
+    path('create/', views.ApartmentCreateView.as_view(), name='apartment-create'),
 ]

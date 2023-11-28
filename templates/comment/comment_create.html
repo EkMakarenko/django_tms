@@ -1,7 +1,15 @@
+{% extends 'index.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
 <body>
     {% block block_info %}
-        <h2>Write a Comment for this Info:</h2>
-        <form method="post" action="{% url 'comment-create' info_id %}">
+        <h2>Write a Comment for this Hotel:</h2>
+        <form method="post" action="{% url 'comment-create' info_id%}">
             {% csrf_token %}
             {{ form.as_p }}
             <button type="submit">Submit</button>

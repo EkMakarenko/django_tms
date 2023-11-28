@@ -10,7 +10,7 @@ from catalog.models import HotelCatalog
 
 @admin.register(Apartment)
 class ApartmentAdmin(admin.ModelAdmin):
-    list_display = ('id', 'total_area', 'numer_of_bedrooms', 'price')
+    list_display = ('id', 'total_area', 'numer_of_bedrooms', 'number_of_bathroom', 'hotel_id', 'price')
     list_filter = ('total_area', 'price')
     search_fields = ['price']
     sortable_by = ('price', 'total_area')
